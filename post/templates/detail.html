@@ -8,7 +8,8 @@
     {% csrf_token %}
     Post Title: {{ post.title }} <br />
     Content: {{ post.content }} <br />
-    Date Created: {{ post.date_created }}
+    Date Created: {{ post.date_created }} <br/>
+    Date Updated: {{ post.date_updated }}
     {% for comment in post.comment.all %}
         comment: {{ comment.content }} | date_created {{ comment.date_created }}
     {% endfor %}
