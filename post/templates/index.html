@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block head %}
+    Index Page
+{% endblock head %}
+{% block body %}
+    <form action="{% url 'post:create' %}" method="POST">
+    {% csrf_token %}
+    <ol>
+    {% for post in posts %}
+    <li>
+        <a href="{% url 'post:detail' post.id %}"> 
+        Post Title: {{ post.title }} <br /> 
+        Post Content: {{ post.content }} 
+        </a>
+        <br />
+    </li>
+    {% endfor %}
+    </ol>
+    <input type="submit" value="Create a new Post">
+    </form>
+{% endblock body %}

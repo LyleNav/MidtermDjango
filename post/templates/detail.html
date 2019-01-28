@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    Detail Page
+{% endblock head %}
+
+{% block body %}
+    {% csrf_token %}
+    Post Title: {{ post.title }} <br />
+    Content: {{ post.content }} <br />
+    Date Created: {{ post.date_created }}
+    {% for comment in post.comment.all %}
+        comment: {{ comment.content }} | date_created {{ comment.date_created }}
+    {% endfor %}
+    <br />
+    <a href="{% url 'post:comment'%}">Comment</a><br />
+    <a href="{% url 'post:update' post.id %}">Update</a>
+{% endblock body %}
