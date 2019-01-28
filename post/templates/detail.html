@@ -14,6 +14,6 @@
         comment: {{ comment.content }} | date_created {{ comment.date_created }}
     {% endfor %}
     <br />
-    <a href="{% url 'post:comment'%}">Comment</a><br />
+    <a href="{% url 'post:comment' post.id %}">Comment</a><br />
     <a href="{% url 'post:update' post.id %}">Update</a>
 {% endblock body %}

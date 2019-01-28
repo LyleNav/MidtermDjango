@@ -47,7 +47,7 @@ def update(request, post_id):
 
 def comment(request, post_id):
     context = {}
-    context['form'] = CommentModelForm()
+    context['form'] = CommentModelForm(initial={'post':Post.objects.get(id=post_id)})
     if request.method == "POST":
         form = CommentModelForm(request.POST)
         if form.is_valid():
